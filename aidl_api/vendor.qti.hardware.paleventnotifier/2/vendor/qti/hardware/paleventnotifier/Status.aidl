@@ -21,8 +21,20 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package vendor.qti.hardware.paleventnotifier;
-@VintfStability
-interface IPALEventNotifier {
-  int ipc_pal_notify_register_callback(in vendor.qti.hardware.paleventnotifier.IPALEventNotifierCallback callback);
-  int ipc_pal_notify_register_callback_v2(in vendor.qti.hardware.paleventnotifier.IPALEventNotifierCallback callback, in vendor.qti.hardware.paleventnotifier.PalDeviceId[] devID, in vendor.qti.hardware.paleventnotifier.PalStreamType[] streamType);
+@Backing(type="int") @VintfStability
+enum Status {
+  UNKNOWN = (-1) /* -1 */,
+  SUCCESS = 0,
+  IO_ERROR,
+  BUSY,
+  NO_SPACE,
+  INVALID_FD,
+  ADVERTISE_ERROR,
+  PROTOCOL_NOT_AVAILABLE,
+  NOT_SUPPORTED,
+  DOWN_WITH_SSR,
+  NOW_INPROGRESS,
+  ALREADY_INPROGRESS,
+  CANCELLED,
+  NOT_RECOVERABLE,
 }

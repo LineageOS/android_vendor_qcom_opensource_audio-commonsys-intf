@@ -21,8 +21,13 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package vendor.qti.hardware.paleventnotifier;
-@VintfStability
-interface IPALEventNotifier {
-  int ipc_pal_notify_register_callback(in vendor.qti.hardware.paleventnotifier.IPALEventNotifierCallback callback);
-  int ipc_pal_notify_register_callback_v2(in vendor.qti.hardware.paleventnotifier.IPALEventNotifierCallback callback, in vendor.qti.hardware.paleventnotifier.PalDeviceId[] devID, in vendor.qti.hardware.paleventnotifier.PalStreamType[] streamType);
+@Backing(type="int") @VintfStability
+enum PalStreamFlag {
+  PAL_STREAM_FLAG_TIMESTAMP = 0x1,
+  PAL_STREAM_FLAG_NON_BLOCKING = 0x2,
+  PAL_STREAM_FLAG_MMAP = 0x4,
+  PAL_STREAM_FLAG_MMAP_NO_IRQ = 0x8,
+  PAL_STREAM_FLAG_EXTERN_MEM = 0x10,
+  PAL_STREAM_FLAG_SRCM_INBAND = 0x20,
+  PAL_STREAM_FLAG_INVALID,
 }

@@ -21,8 +21,33 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package vendor.qti.hardware.paleventnotifier;
-@VintfStability
-interface IPALEventNotifier {
-  int ipc_pal_notify_register_callback(in vendor.qti.hardware.paleventnotifier.IPALEventNotifierCallback callback);
-  int ipc_pal_notify_register_callback_v2(in vendor.qti.hardware.paleventnotifier.IPALEventNotifierCallback callback, in vendor.qti.hardware.paleventnotifier.PalDeviceId[] devID, in vendor.qti.hardware.paleventnotifier.PalStreamType[] streamType);
+@Backing(type="int") @VintfStability
+enum PalStreamType {
+  PAL_STREAM_LOW_LATENCY = 1,
+  PAL_STREAM_DEEP_BUFFER = 2,
+  PAL_STREAM_COMPRESSED = 3,
+  PAL_STREAM_VOIP = 4,
+  PAL_STREAM_VOIP_RX = 5,
+  PAL_STREAM_VOIP_TX = 6,
+  PAL_STREAM_VOICE_CALL_MUSIC = 7,
+  PAL_STREAM_GENERIC = 8,
+  PAL_STREAM_RAW = 9,
+  PAL_STREAM_VOICE_RECOGNITION = 10,
+  PAL_STREAM_VOICE_CALL_RECORD = 11,
+  PAL_STREAM_VOICE_CALL_TX = 12,
+  PAL_STREAM_VOICE_CALL_RX_TX = 13,
+  PAL_STREAM_VOICE_CALL = 14,
+  PAL_STREAM_LOOPBACK = 15,
+  PAL_STREAM_TRANSCODE = 16,
+  PAL_STREAM_VOICE_UI = 17,
+  PAL_STREAM_PCM_OFFLOAD = 18,
+  PAL_STREAM_ULTRA_LOW_LATENCY = 19,
+  PAL_STREAM_PROXY = 20,
+  PAL_STREAM_NON_TUNNEL = 21,
+  PAL_STREAM_HAPTICS = 22,
+  PAL_STREAM_ACD = 23,
+  PAL_STREAM_CONTEXT_PROXY = 24,
+  PAL_STREAM_SENSOR_PCM_DATA = 25,
+  PAL_STREAM_ULTRASOUND = 26,
+  PAL_STREAM_SPATIAL_AUDIO = 27,
 }
