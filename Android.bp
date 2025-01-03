@@ -9,7 +9,7 @@ prebuilt_hidl_interfaces {
 aidl_interface {
     name: "vendor.qti.hardware.paleventnotifier",
     srcs: ["vendor/qti/hardware/paleventnotifier/*.aidl"],
-    vendor: true,
+    vendor_available: true,
     stability: "vintf",
     imports: [
         "android.hardware.common-V2",
