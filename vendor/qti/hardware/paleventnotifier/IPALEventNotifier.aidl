@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  * SPDX-License-Identifier: BSD-3-Clause-Clear
  */
 
@@ -14,5 +14,5 @@ interface IPALEventNotifier {
 
     int ipc_pal_notify_register_callback(in IPALEventNotifierCallback callback);
     int ipc_pal_notify_register_callback_v2(in IPALEventNotifierCallback callback, in PalDeviceId[] devID, in PalStreamType[] streamType);
-
+    int ipc_pal_notify_register_callstranslation_callback(in vendor.qti.hardware.paleventnotifier.IPALEventNotifierCallback callback);
 }

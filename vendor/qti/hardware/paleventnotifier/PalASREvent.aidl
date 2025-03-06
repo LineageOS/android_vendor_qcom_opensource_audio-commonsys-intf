@@ -22,8 +22,38 @@
 
 package vendor.qti.hardware.paleventnotifier;
 @VintfStability
-interface IPALEventNotifier {
-  int ipc_pal_notify_register_callback(in vendor.qti.hardware.paleventnotifier.IPALEventNotifierCallback callback);
-  int ipc_pal_notify_register_callback_v2(in vendor.qti.hardware.paleventnotifier.IPALEventNotifierCallback callback, in vendor.qti.hardware.paleventnotifier.PalDeviceId[] devID, in vendor.qti.hardware.paleventnotifier.PalStreamType[] streamType);
-  int ipc_pal_notify_register_callstranslation_callback(in vendor.qti.hardware.paleventnotifier.IPALEventNotifierCallback callback);
+parcelable PalASREvent {
+  vendor.qti.hardware.paleventnotifier.PalASREvent.EventStatus status = vendor.qti.hardware.paleventnotifier.PalASREvent.EventStatus.INVALID;
+  vendor.qti.hardware.paleventnotifier.PalASREvent.LanguageCode input_language_code = vendor.qti.hardware.paleventnotifier.PalASREvent.LanguageCode.EN_US;
+  vendor.qti.hardware.paleventnotifier.PalASREvent.LanguageCode output_language_code = vendor.qti.hardware.paleventnotifier.PalASREvent.LanguageCode.EN_US;
+  vendor.qti.hardware.paleventnotifier.PalASREvent.EventDirection direction = vendor.qti.hardware.paleventnotifier.PalASREvent.EventDirection.DEFAULT;
+  vendor.qti.hardware.paleventnotifier.PalASREvent.Event[] event;
+  @Backing(type="int") @VintfStability
+  enum LanguageCode {
+    EN_US = 0,
+    ZH_CN = 1,
+    HI_IN = 2,
+    ES_US = 3,
+    KO_KR = 4,
+    JA_JP = 5,
+  }
+  @Backing(type="int") @VintfStability
+  enum EventStatus {
+    INVALID = (-1) /* -1 */,
+    SUCCESS = 0,
+    ABORTED = 1,
+  }
+  @Backing(type="int") @VintfStability
+  enum EventDirection {
+    DEFAULT = 0,
+    DIR_TX = 1,
+    DIR_RX = 2,
+  }
+  parcelable Event {
+    boolean is_final;
+    int confidence;
+    String text;
+    String result_json;
+    byte[] data;
+  }
 }
