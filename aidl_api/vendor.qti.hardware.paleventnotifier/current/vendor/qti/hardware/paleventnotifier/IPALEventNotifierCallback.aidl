@@ -1,5 +1,5 @@
 /*
- * Copyright (c) 2024 Qualcomm Innovation Center, Inc. All rights reserved.
+ * Copyright (c) Qualcomm Technologies, Inc. and/or its subsidiaries.
  * SPDX-License-Identifier: BSD-3-Clause-Clear
  */
 ///////////////////////////////////////////////////////////////////////////////
@@ -26,4 +26,6 @@ interface IPALEventNotifierCallback {
   oneway void onStart(in vendor.qti.hardware.paleventnotifier.PalCallbackConfig Config);
   oneway void onStop(in vendor.qti.hardware.paleventnotifier.PalCallbackConfig Config);
   oneway void onDeviceSwitch(in vendor.qti.hardware.paleventnotifier.PalCallbackConfig Config);
+  oneway void onNmtEventCallback(in vendor.qti.hardware.paleventnotifier.PalNMTEvent event);
+  oneway void onAsrEventCallback(in vendor.qti.hardware.paleventnotifier.PalASREvent event);
 }
