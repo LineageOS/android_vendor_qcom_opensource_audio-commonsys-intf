@@ -21,10 +21,7 @@
 // later when a module using the interface is updated, e.g., Mainline modules.
 
 package vendor.qti.hardware.paleventnotifier;
-@VintfStability
-interface IPALEventNotifierCallback {
-  oneway void onStart(in vendor.qti.hardware.paleventnotifier.PalCallbackConfig Config);
-  oneway void onStop(in vendor.qti.hardware.paleventnotifier.PalCallbackConfig Config);
-  oneway void onDeviceSwitch(in vendor.qti.hardware.paleventnotifier.PalCallbackConfig Config);
-  oneway void onEventCallback(in vendor.qti.hardware.paleventnotifier.PalCallbackEvent event_payload);
+@Backing(type="int") @VintfStability
+enum PalCallbackEventType {
+  PAL_CALL_TRANSLATION_TEXT = 0,
 }
